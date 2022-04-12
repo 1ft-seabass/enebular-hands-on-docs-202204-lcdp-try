@@ -1,0 +1,32 @@
+{
+  "name": "enebular-hands-on-docs-202204-lcdp-try",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "serve": "npx honkit serve base src",
+    "build": "npx honkit build base docs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/1ft-seabass/enebular-hands-on-docs-202204-lcdp-try.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/1ft-seabass/enebular-hands-on-docs-202204-lcdp-try/issues"
+  },
+  "homepage": "https://github.com/1ft-seabass/enebular-hands-on-docs-202204-lcdp-try#readme",
+  "devDependencies": {
+    "honkit": "^3.6.20"
+  },
+  "dependencies": {
+    "gitbook-plugin-advanced-emoji": "^0.2.2",
+    "gitbook-plugin-anchors": "^0.7.1",
+    "gitbook-plugin-back-to-top-button": "^0.1.4",
+    "gitbook-plugin-copy-code-button": "0.0.2",
+    "gitbook-plugin-hide-published-with": "0.0.1",
+    "gitbook-plugin-intopic-toc": "^1.1.1"
+  }
+}
