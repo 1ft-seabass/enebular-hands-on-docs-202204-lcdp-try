@@ -225,6 +225,89 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="airtable-にデータを記録する場所を作ろう">Airtable にデータを記録する場所を作ろう</h1>
+<p><img src="https://i.gyazo.com/2fa709857524e4f85423675808a883d4.png" alt="image"></p>
+<p><a href="https://blog.enebular.com/samples/use-airtable-as-spreadsheet1/" target="_blank">スプレッドシートのようにデータ管理できる Airtable を Node-RED ノードでセットアップしてみる | enebular blog</a></p>
+<p>こちらの記事をベースに、Airtable についての簡単な紹介と、アカウントの作り方を説明します。</p>
+<h2 id="データのかたまり-base-を準備する">データのかたまり Base を準備する</h2>
+<p>AirTable ではスプレッドシートのようなデータのかたまりを Base と呼びます。</p>
+<p><img src="https://i.gyazo.com/7f3c881b9b39e492d78012c24ec53669.png" alt="image"></p>
+<p>自分のアカウントの画面から Add a base のボタンからはじめます。</p>
+<p><img src="https://i.gyazo.com/1893a73f20c66ef27536fa718b888dd1.png" alt="image"></p>
+<p>Untitled Base ができます。</p>
+<p><img src="https://i.gyazo.com/52b501b584f9e18c655b10e7a067c21a.png" alt="image"></p>
+<p>Table 1 を見ます。Name ・ Notes ・ Attachments ・ Status という列ができています。</p>
+<p>これを今回のフローで書き出すデータに合わせて修正します。今回はとてもシンプルにします。</p>
+<ul>
+<li>Name<ul>
+<li>名前を Id に変更</li>
+</ul>
+</li>
+<li>Notes<ul>
+<li>名前を Text に変更</li>
+</ul>
+</li>
+<li>Attachments<ul>
+<li>削除</li>
+</ul>
+</li>
+<li>Status<ul>
+<li>削除</li>
+</ul>
+</li>
+<li>CreateAt<ul>
+<li>＋ボタンから新しく</li>
+</ul>
+</li>
+</ul>
+<h3 id="status-の削除">Status の削除</h3>
+<p><img src="https://i.gyazo.com/86243a5a2d305cf2d9b946fe27ab610f.png" alt="image"></p>
+<p>まず Status は削除します。</p>
+<h3 id="attachments-の削除">Attachments の削除</h3>
+<p><img src="https://i.gyazo.com/434177f93cebaebc8e9fa8b806c0c47d.png" alt="image"></p>
+<p>つづいて Attachments も削除します。</p>
+<h3 id="name-の名前変更">Name の名前変更</h3>
+<p><img src="https://i.gyazo.com/10a64d86437992b88a9eb8fd74113897.png" alt="image"></p>
+<p>Name の欄から Customize field type をクリックします。</p>
+<p><img src="https://i.gyazo.com/41fcce943accc6e89a69b739c3ad5713.png" alt="image"></p>
+<p>こちらの画面で Name を Id に変更します。</p>
+<p><img src="https://i.gyazo.com/28110ec432edaad49f22bb09dfe8d8bc.png" alt="image"></p>
+<p>Id に変更したら Save をクリックします。</p>
+<h3 id="notes-の名前変更">Notes の名前変更</h3>
+<p><img src="https://i.gyazo.com/298e5ce2a7c1d3b4812b27dfbbd621ce.png" alt="image"></p>
+<p>同じように Notes を Text に変更して Save をクリックします。</p>
+<h3 id="createat-の新規作成">CreateAt の新規作成</h3>
+<p><img src="https://i.gyazo.com/77d807255dae3d09fecaaa6341fe97e9.png" alt="image"></p>
+<p>Id の項目の横にある＋ボタンをクリックして新しい項目を作成します。</p>
+<p><img src="https://i.gyazo.com/1c5e66d7f0ecefd5bd56a9a6861944d0.png" alt="image"></p>
+<p>名前を CreateAt として、タイプを Single line text でクリックします。</p>
+<p><img src="https://i.gyazo.com/dd69fb2999cd34f622db4a71e6a38e4c.png" alt="image"></p>
+<p>設定内容を確認して Create fields をクリックします。</p>
+<p><img src="https://i.gyazo.com/be1d141e96ee94fa3758a8cd4261167a.png" alt="image"></p>
+<p>これで作成は完了です。</p>
+<h2 id="初期データの削除">初期データの削除</h2>
+<p>3 行ほど空データがあるので削除しておきます。</p>
+<p><img src="https://i.gyazo.com/54bfd73331a096a675965c84264b6d8d.png" alt="image"></p>
+<p>各行の横にチェックボックスがあるのでクリックして選択します。</p>
+<p><img src="https://i.gyazo.com/00017537212c7616d9125898c456b01d.png" alt="image"></p>
+<p>3 行選択できたら、</p>
+<p><img src="https://i.gyazo.com/d70992f5e9caa45be0e03c0e5bb5ac13.png" alt="image"></p>
+<p>右クリックをして Delete all select records をクリックします。</p>
+<p><img src="https://i.gyazo.com/9c7f4902745d7291a88d1fb96018b9bb.png" alt="image"></p>
+<p>無事削除できました。</p>
+<h2 id="今回作った-base-の-id-を取得する">今回作った Base の ID を取得する</h2>
+<p><img src="https://i.gyazo.com/c2b89f06e739cbaca7e70798e0f5bd81.png" alt="image"></p>
+<p>アカウントでログインした状態で REST API という各 Base の API 取得方法が見られるページに移動します。</p>
+<ul>
+<li>REST API<ul>
+<li><a href="https://airtable.com/api" target="_blank">https://airtable.com/api</a></li>
+</ul>
+</li>
+</ul>
+<p>移動して、</p>
+<p><img src="https://i.gyazo.com/50cf4b66015ab442ea780409d0d9aea8.png" alt="image"></p>
+<p>今回作った Base をクリックします。</p>
+<p><img src="https://i.gyazo.com/67693477015171884e636cf91d9404dd.png" alt="image"></p>
+<p>INTRODUCTION が表示されるので The ID of this base is のところの app ではじまる Base ID をメモしておきます。</p>
 <h2 id="次は">次は</h2>
 <p>お疲れ様でした。</p>
 <p>左のメニューから次のコンテンツ「いよいよ動かしてみよう」をクリックしましょう。</p>
@@ -271,7 +354,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Airtable にデータを記録する場所を作ろう","level":"1.6","depth":1,"next":{"title":"いよいよ動かしてみよう","level":"1.7","depth":1,"path":"05-try-flow.md","ref":"05-try-flow.md","articles":[]},"previous":{"title":"フローをインポートして設定しよう","level":"1.5","depth":1,"path":"03-flow-import-and-setting.md","ref":"03-flow-import-and-setting.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"04-airtable-create.md","mtime":"2022-04-22T13:57:30.684Z","type":"markdown"},"gitbook":{"version":"3.7.1","time":"2022-04-22T13:59:05.112Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Airtable にデータを記録する場所を作ろう","level":"1.6","depth":1,"next":{"title":"いよいよ動かしてみよう","level":"1.7","depth":1,"path":"05-try-flow.md","ref":"05-try-flow.md","articles":[]},"previous":{"title":"フローをインポートして設定しよう","level":"1.5","depth":1,"path":"03-flow-import-and-setting.md","ref":"03-flow-import-and-setting.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"04-airtable-create.md","mtime":"2022-04-23T14:40:49.757Z","type":"markdown"},"gitbook":{"version":"3.7.1","time":"2022-04-23T14:41:26.753Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
