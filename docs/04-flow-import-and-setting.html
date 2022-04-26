@@ -253,15 +253,28 @@
 <p><img src="https://i.gyazo.com/7525befb84b02360559d8da2fe233121.png" alt="image"></p>
 <p>これでインポートされました。</p>
 <h2 id="エディタを開いて設定します">エディタを開いて設定します</h2>
-<p><img src="https://i.gyazo.com/81765e547faa7cb743e1733eaef50779.png" alt="image"></p>
+<p><img src="https://i.gyazo.com/7faa3d09c375bc94674db55b1c808079.png" alt="image"></p>
 <p>編集ボタンをクリックして WEB エディタを開きます。</p>
+<h2 id="おおまかな仕組み">おおまかな仕組み</h2>
+<p><img src="https://i.gyazo.com/0206da1fa598541ac51f532069cbab6a.png" alt="image"></p>
+<p>この部分は Twitter API v2 でのツイート取得する部分です。</p>
+<p><a href="https://blog.enebular.com/samples/twitter-api-v2-%E3%81%A7%E3%81%AE%E3%83%84%E3%82%A4%E3%83%BC%E3%83%88%E5%AE%9A%E6%9C%9F%E5%8F%96%E5%BE%97%E3%82%92-enebular-%E5%AE%9F%E8%A1%8C%E7%92%B0%E5%A2%83%E3%81%A7%E8%A9%A6%E3%81%99/" target="_blank">Twitter API v2 でのツイート定期取得を enebular 実行環境で試す | enebular blog</a></p>
+<p>の仕組みを活用しています。</p>
+<p><img src="https://i.gyazo.com/b4d214024bd8f69bf5837abce39f21a2.png" alt="image"></p>
+<p>この部分は、ツイートの件数によって、何かツイート取得出来れば Airtable に書き込むか、0件の場合は、すぐに LCDP ノードで返答することで実行を終了させています。</p>
+<p><img src="https://i.gyazo.com/a43ec4a8d6f1d74d2e4f3917b03f50c5.png" alt="image"></p>
+<p>この部分は、Airtable でツイートを保存する部分です。</p>
+<p><a href="https://blog.enebular.com/samples/use-airtable-as-spreadsheet2/" target="_blank">スプレッドシートのようにデータ管理できる AirtableをNode-REDノードでデータを書き込んでみる | enebular blog</a></p>
+<p>の仕組みを活用しています。</p>
+<p>1 件ごとに分解して即座に Airtable に書き込むので Airtable の API 書き込み限界を越える心配があるものの、15 分ごとの取得であれば、多くて 5 件くらいなので、今回はこうしています。</p>
+<p>では、設定をはじめていきましょう。</p>
 <h2 id="twitter-の-bearertoken-を設定">Twitter の BearerToken を設定</h2>
 <p><img src="https://i.gyazo.com/c1711a6f6d227e6f48ba3473fda5cad6.png" alt="image"></p>
 <p>こちらの TwitterBearerToken と書かれた change ノードをダブルクリックしてプロパティ画面を表示します。</p>
 <p><img src="https://i.gyazo.com/a8cca154c8c663a2de2477aabc69de9e.png" alt="image"></p>
 <p><code>&lt;BearerToken&gt;</code> を自分の Twitter 開発者アカウントで作成した BearerToken に変更します。</p>
 <h2 id="airtable-の-api-key-を設定">Airtable の API Key を設定</h2>
-<p><img src="https://i.gyazo.com/85eb2a2293521b7fe50226fdc9284456.png" alt="image"></p>
+<p><img src="https://i.gyazo.com/ee7df5ca479f78befe98ce10da4fbe37.png" alt="image"></p>
 <p>こちらの airtable と書かれた airtable ノードをダブルクリックしてプロパティ画面を表示します。</p>
 <p><img src="https://i.gyazo.com/4ccaac89df3e7bdc62afddddbd7ef3ec.png" alt="image"></p>
 <p>airtable out ノードを編集のプロパティ画面を確認します。テーブル名は、このまま <code>Table 1</code> を使うのでそのままでOKです。</p>
@@ -281,7 +294,7 @@
 <p>を入力します。更新ボタンをクリックして設定を更新し、airtable out ノードを編集のプロパティ画面に戻ります。</p>
 <p><img src="https://i.gyazo.com/39fd954bcac5f7d91cde1437c6e382a3.png" alt="image"></p>
 <p>完了ボタンをクリックして設定を完了します。</p>
-<p><img src="https://i.gyazo.com/defedb85b04235a81a3fecd33cd13212.png" alt="image"></p>
+<p><img src="https://i.gyazo.com/76b35427f8d376bcb1208d1bd69e2eb8.png" alt="image"></p>
 <p>デプロイボタンをクリックして設定を反映します。</p>
 <p>これで準備完了です。</p>
 <h2 id="次は">次は</h2>
@@ -330,7 +343,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"フローをインポートして設定しよう","level":"1.6","depth":1,"next":{"title":"フローを試してみよう","level":"1.7","depth":1,"path":"05-try-flow.md","ref":"05-try-flow.md","articles":[]},"previous":{"title":"Airtable にデータを記録する場所を作ろう","level":"1.5","depth":1,"path":"03-airtable-create.md","ref":"03-airtable-create.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"04-flow-import-and-setting.md","mtime":"2022-04-26T07:17:08.110Z","type":"markdown"},"gitbook":{"version":"3.7.1","time":"2022-04-26T07:56:42.763Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"フローをインポートして設定しよう","level":"1.6","depth":1,"next":{"title":"フローを試してみよう","level":"1.7","depth":1,"path":"05-try-flow.md","ref":"05-try-flow.md","articles":[]},"previous":{"title":"Airtable にデータを記録する場所を作ろう","level":"1.5","depth":1,"path":"03-airtable-create.md","ref":"03-airtable-create.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"04-flow-import-and-setting.md","mtime":"2022-04-26T12:20:06.668Z","type":"markdown"},"gitbook":{"version":"3.7.1","time":"2022-04-26T12:26:51.906Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>

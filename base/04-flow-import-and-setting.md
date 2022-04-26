@@ -30,9 +30,35 @@
 
 ## エディタを開いて設定します
 
-![image](https://i.gyazo.com/81765e547faa7cb743e1733eaef50779.png)
+![image](https://i.gyazo.com/7faa3d09c375bc94674db55b1c808079.png)
 
 編集ボタンをクリックして WEB エディタを開きます。
+
+## おおまかな仕組み
+
+![image](https://i.gyazo.com/0206da1fa598541ac51f532069cbab6a.png)
+
+この部分は Twitter API v2 でのツイート取得する部分です。
+
+[Twitter API v2 でのツイート定期取得を enebular 実行環境で試す | enebular blog](https://blog.enebular.com/samples/twitter-api-v2-%E3%81%A7%E3%81%AE%E3%83%84%E3%82%A4%E3%83%BC%E3%83%88%E5%AE%9A%E6%9C%9F%E5%8F%96%E5%BE%97%E3%82%92-enebular-%E5%AE%9F%E8%A1%8C%E7%92%B0%E5%A2%83%E3%81%A7%E8%A9%A6%E3%81%99/)
+
+の仕組みを活用しています。
+
+![image](https://i.gyazo.com/b4d214024bd8f69bf5837abce39f21a2.png)
+
+この部分は、ツイートの件数によって、何かツイート取得出来れば Airtable に書き込むか、0件の場合は、すぐに LCDP ノードで返答することで実行を終了させています。
+
+![image](https://i.gyazo.com/a43ec4a8d6f1d74d2e4f3917b03f50c5.png)
+
+この部分は、Airtable でツイートを保存する部分です。
+
+[スプレッドシートのようにデータ管理できる AirtableをNode-REDノードでデータを書き込んでみる | enebular blog](https://blog.enebular.com/samples/use-airtable-as-spreadsheet2/)
+
+の仕組みを活用しています。
+
+1 件ごとに分解して即座に Airtable に書き込むので Airtable の API 書き込み限界を越える心配があるものの、15 分ごとの取得であれば、多くて 5 件くらいなので、今回はこうしています。
+
+では、設定をはじめていきましょう。
 
 ## Twitter の BearerToken を設定
 
@@ -46,7 +72,7 @@
 
 ## Airtable の API Key を設定
 
-![image](https://i.gyazo.com/85eb2a2293521b7fe50226fdc9284456.png)
+![image](https://i.gyazo.com/ee7df5ca479f78befe98ce10da4fbe37.png)
 
 こちらの airtable と書かれた airtable ノードをダブルクリックしてプロパティ画面を表示します。
 
@@ -71,7 +97,7 @@ airtable ノードのプロパティ編集画面に移動します。
 
 完了ボタンをクリックして設定を完了します。
 
-![image](https://i.gyazo.com/defedb85b04235a81a3fecd33cd13212.png)
+![image](https://i.gyazo.com/76b35427f8d376bcb1208d1bd69e2eb8.png)
 
 デプロイボタンをクリックして設定を反映します。
 

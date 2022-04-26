@@ -20,7 +20,7 @@ WEB エディタで実際に実行してみましょう。
 
 ![image](https://i.gyazo.com/7816d55ed5175bef63a7ae4406c03d66.png)
 
-![image](https://i.gyazo.com/8e811d0ae2f2b3ff9274e3e7452f32c7.png)
+![image](https://i.gyazo.com/3a4936be5034e0d56a73748aeaf1c89d.png)
 
 すると、ツイート取得後のこちらの debug ノードに結果が返ってきます。
 
@@ -34,7 +34,7 @@ JSON のツリーを開いて今回の内容を見てみます。無事取得さ
 
 ## Airtable の記録も確認してみる
 
-![image](https://i.gyazo.com/ef2c89a033d83d501c99f8153d006447.png)
+![image](https://i.gyazo.com/2889b7047e4e6c5d95cefe659187f329.png)
 
 Airtable への記録の結果はこちらの debug ノードで確認できます。
 

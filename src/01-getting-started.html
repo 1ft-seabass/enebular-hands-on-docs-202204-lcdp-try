@@ -239,13 +239,32 @@
                                 
                                 <h1 id="はじめに">はじめに</h1>
 <h2 id="今回の仕組み">今回の仕組み</h2>
-<p>（画像）</p>
+<p><img src="https://i.gyazo.com/1b7eb455504d7f3c61510e8855a27c63.png" alt="image"></p>
 <p>今回の仕組みは enebular の実行環境を使って Twitter からのツイート取得と、そのデータを AirTable に保存する流れを定期的に行います。</p>
-<p>（画像）</p>
-<p>時間としては今回は</p>
+<p><img src="https://blog.enebular.com/wp-content/uploads/2022/04/2022_0426_CloudEnv-800x400.png" alt="image"></p>
+<h2 id="twitter-api-v2-によるツイート取得">Twitter API v2 によるツイート取得</h2>
+<p><a href="https://blog.enebular.com/samples/twitter-api-v2-%E3%81%A7%E3%81%AE%E3%83%84%E3%82%A4%E3%83%BC%E3%83%88%E5%AE%9A%E6%9C%9F%E5%8F%96%E5%BE%97%E3%82%92-enebular-%E5%AE%9F%E8%A1%8C%E7%92%B0%E5%A2%83%E3%81%A7%E8%A9%A6%E3%81%99/" target="_blank">Twitter API v2 でのツイート定期取得を enebular 実行環境で試す | enebular blog</a></p>
+<p>前半の Twitter API v2 を実行環境で試す部分は、enebular blog のこちらの記事でもくわしく書かれているので、ご参考ください。</p>
+<ul>
+<li><a href="https://blog.enebular.com/samples/query-tweets-on-enebular-web-flow-editor/" target="_blank">Flow EditorからTwitter API v2でツイートを定期取得してみる | enebular blog</a></li>
+<li><a href="https://blog.enebular.com/samples/query-tweets-with-enebular-via-twitter-apiv2/" target="_blank">enebular から Twitter API v2 でツイートを取得してみる | enebular blog</a></li>
+</ul>
+<p>と、少しずつ仕組みをステップアップして今回のツイート取得の仕組みになっています。</p>
+<h2 id="airtable-によるデータ書き込み">Airtable によるデータ書き込み</h2>
+<p><img src="https://blog.enebular.com/wp-content/uploads/2021/10/enebular-airtable_01.png" alt="image"></p>
+<p>Airtable によるデータ書き込みについても enebular blog のこちらの記事でもくわしく書かれているので、ご参考ください。</p>
+<ul>
+<li><a href="https://blog.enebular.com/samples/use-airtable-as-spreadsheet1/" target="_blank">スプレッドシートのようにデータ管理できる Airtable を Node-RED ノードでセットアップしてみる | enebular blog</a></li>
+<li><a href="https://blog.enebular.com/samples/use-airtable-as-spreadsheet2/" target="_blank">スプレッドシートのようにデータ管理できる AirtableをNode-REDノードでデータを書き込んでみる | enebular blog</a></li>
+</ul>
+<p>今回の仕組みは「Twitter API v2 によるツイート取得」「Airtable によるデータ書き込み」を掛け合わせたものになります。</p>
 <h2 id="enebular-の実行環境の話">enebular の実行環境の話</h2>
-<p>（画像）</p>
+<p><img src="https://blog.enebular.com/wp-content/uploads/2022/02/apps-menu-800x400.png" alt="image"></p>
+<p><a href="https://blog.enebular.com/function/apps-environment/" target="_blank">Web APIが簡単に作れたり、クラウド上での定期実行も可能な実行環境をリリース | enebular blog</a></p>
 <p>enebular の実行環境は最近リリースされました。</p>
+<p>実行環境は、Node-REDのフローを実行するクラウド環境です。Node-REDでWeb APIが簡単に作れたり、クラウド上での定期実行もできます。</p>
+<p><a href="https://blog.enebular.com/enebular/how-to-use-enebular-cloud-exec-environment/" target="_blank">新リリースのenebularクラウド実行環境の使い方 | enebular blog</a></p>
+<p>もちろん、ドキュメントも参考になりますが、この記事が、はじめての方でしたら実行環境の使い方が触れやすいので、今回のハンズオンで気になった方は是非見てみてください。</p>
 <h2 id="ではさっそく">ではさっそく</h2>
 <p>左のメニューから次のコンテンツ「enebular プロジェクトに実行環境を準備しよう」をクリックしましょう。</p>
 
@@ -291,7 +310,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"はじめに","level":"1.3","depth":1,"next":{"title":"enebular プロジェクトに実行環境を準備しよう","level":"1.4","depth":1,"path":"02-enebular-lcdp.md","ref":"02-enebular-lcdp.md","articles":[]},"previous":{"title":"準備","level":"1.2","depth":1,"path":"00-preparation.md","ref":"00-preparation.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"01-getting-started.md","mtime":"2022-04-22T13:51:10.438Z","type":"markdown"},"gitbook":{"version":"3.7.1","time":"2022-04-26T07:56:04.815Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"はじめに","level":"1.3","depth":1,"next":{"title":"enebular プロジェクトに実行環境を準備しよう","level":"1.4","depth":1,"path":"02-enebular-lcdp.md","ref":"02-enebular-lcdp.md","articles":[]},"previous":{"title":"準備","level":"1.2","depth":1,"path":"00-preparation.md","ref":"00-preparation.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"01-getting-started.md","mtime":"2022-04-26T12:12:10.905Z","type":"markdown"},"gitbook":{"version":"3.7.1","time":"2022-04-26T12:26:59.332Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
