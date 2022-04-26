@@ -1,5 +1,3 @@
-![image](https://i.gyazo.com/cbc1f6e4afa35f95554d9b116991eb65.png)
-
 # フローを試してみよう
 
 これで、連携する仕組みが整いました。
