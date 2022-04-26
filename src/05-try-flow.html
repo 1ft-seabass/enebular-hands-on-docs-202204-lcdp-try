@@ -3,7 +3,7 @@
 <html lang="" >
     <head>
         <meta charset="UTF-8">
-        <title>いよいよ動かしてみよう · HonKit</title>
+        <title>フローを試してみよう · HonKit</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="HonKit 3.7.1">
@@ -56,8 +56,10 @@
     <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
 
     
+    <link rel="next" href="06-lcdp-setting-wait.html" />
     
-    <link rel="prev" href="04-airtable-create.html" />
+    
+    <link rel="prev" href="04-flow-import-and-setting.html" />
     
 
     </head>
@@ -138,12 +140,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5" data-path="03-flow-import-and-setting.html">
+        <li class="chapter " data-level="1.5" data-path="03-airtable-create.html">
             
-                <a href="03-flow-import-and-setting.html">
+                <a href="03-airtable-create.html">
             
                     
-                    フローをインポートして設定しよう
+                    Airtable にデータを記録する場所を作ろう
             
                 </a>
             
@@ -151,12 +153,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.6" data-path="04-airtable-create.html">
+        <li class="chapter " data-level="1.6" data-path="04-flow-import-and-setting.html">
             
-                <a href="04-airtable-create.html">
+                <a href="04-flow-import-and-setting.html">
             
                     
-                    Airtable にデータを記録する場所を作ろう
+                    フローをインポートして設定しよう
             
                 </a>
             
@@ -169,7 +171,20 @@
                 <a href="05-try-flow.html">
             
                     
-                    いよいよ動かしてみよう
+                    フローを試してみよう
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="06-lcdp-setting-wait.html">
+            
+                <a href="06-lcdp-setting-wait.html">
+            
+                    
+                    実行環境の設定をして動かしてみる
             
                 </a>
             
@@ -207,7 +222,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="." >いよいよ動かしてみよう</a>
+        <a href="." >フローを試してみよう</a>
     </h1>
 </div>
 
@@ -222,52 +237,34 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="いよいよ動かしてみよう">いよいよ動かしてみよう</h1>
-<p>これで、enebular editor と Power Automate Desktop が連携する仕組みが整いました。</p>
-<p>あともう少しです。</p>
-<h2 id="enebular-editor-を起動したままか確認">enebular editor を起動したままか確認</h2>
-<p><img src="https://i.gyazo.com/35c38ff126f672e70060dd47256b1016.png" alt="image"></p>
-<p>何かの拍子に閉じてるかもしれないので enebular editor を起動したままか確認します。</p>
-<h2 id="enebular-editor-の動作を確認する">enebular editor の動作を確認する</h2>
-<p>Power Automate Desktop の実行先の、enebular editor のデータの入口（HTTP in）をブラウザで確認しましょう。</p>
-<p><code>http://localhost:1888/api</code></p>
-<p>こちらのアドレスを</p>
-<p><img src="https://i.gyazo.com/4bdaf72650c8da7c47ae93906eccb74b.png" alt="image"></p>
-<p>Chrome ブラウザのアドレス欄に入力して、アクセスしてみましょう。</p>
-<p><img src="https://i.gyazo.com/dc991970f05e654f2f68fbcb426315f9.png" alt="image"></p>
-<p>このように、アクセスできデータが取得出来たら、enebular editor の動作確認は完了です。</p>
-<h2 id="power-automate-desktop-の実行速度を変更する">Power Automate Desktop の実行速度を変更する</h2>
-<p><img src="https://i.gyazo.com/a8a59a7dcd13f6b3b7dfd5897565dd77.png" alt="image"></p>
-<p>Power Automate Desktop は、1つ1つのアクションを実行するときに時間間隔を設定しています。</p>
-<p>下部に設定があります。</p>
-<p><img src="https://i.gyazo.com/4ddef759c632479e4ab04413d52fc613.png" alt="image"></p>
-<p>デフォルトでは、100 ミリ秒です。</p>
-<p><img src="https://i.gyazo.com/f8c345422db7310803dbfe81cbcef121.png" alt="image"></p>
-<p>このまま実行してしまうと、終わるまでに結構時間がかかるので、1ミリ秒にします。</p>
-<h2 id="実際に実行してみましょう">実際に実行してみましょう</h2>
-<p><img src="https://i.gyazo.com/de9fb442046439749482f400ed59f8d3.png" alt="image"></p>
-<p>実行ボタンをクリックしてみましょう。</p>
-<p><img src="https://i.gyazo.com/cdee80533efcf79980f8d1b0369eacb5.png" alt="image"></p>
-<p>enebular editor につながると実際の為替 API にデータを取得してきて Power Automate Desktop が Excel にデータを保存し始めます。</p>
-<p><img src="https://i.gyazo.com/54e281f698fd9b7926a059b16620022c.png" alt="image"></p>
-<p>しばらく待っていると Excel に書き込まれます。</p>
-<p><img src="https://i.gyazo.com/533b1992dea4348bd700aa680c694b26.png" alt="image"></p>
-<p>なお、この時点では sample.xlsx は保存されていないので、自分で保存しましょう。</p>
-<h2 id="ふりかえり">ふりかえり</h2>
-<p><img src="https://i.gyazo.com/ba61f6f0d0e3915455db3ec73508e467.png" alt="image"></p>
-<p>Node-RED と Power Automate Desktop でバランスよく自動化を作ってみました。</p>
-<p><img src="https://i.gyazo.com/78ee8a3ed0edc1a202661621edc6230e.png" alt="image"></p>
-<p>Power Automate Desktop はデスクトップの自動化に関しては多彩です。Excel の読み書き、ダイアログや音を出したり Node-RED では手間がかかることが手軽にできます。</p>
-<p><img src="https://i.gyazo.com/f831be9532fa2a8157bc601c52a60e38.png" alt="image"></p>
-<p>Node-RED はいろいろな API へつなぎやすくその後のデータ加工が得意です。Power Automate Desktop では手間が多くなる部分がやりやすいです。</p>
-<p><img src="https://i.gyazo.com/992a746d879e34375f197313a3c8a986.png" alt="image"></p>
-<p>Node-RED でデータ加工をうまくやり Power Automate Desktop がデータ保存を担うやりかたで、取得したい API が変わっても対応しやすそうです。</p>
-<p>もちろん1ツールに寄せるのもアリだと思うし、こういう連携でやりたいことを探っていくことができるのは面白いところです。</p>
-<p>請求書を経理データから自動入力作成とか作業報告書とか予定表とかを自動で入れるとか、Excel 入力も色々できることがありそうなので、ぜひこの仕組みで色々試してみてください！</p>
-<p>Node-RED と Power Automate Desktop でよき業務自動化ライフを！</p>
+                                <p><img src="https://i.gyazo.com/cbc1f6e4afa35f95554d9b116991eb65.png" alt="image"></p>
+<h1 id="フローを試してみよう">フローを試してみよう</h1>
+<p>これで、連携する仕組みが整いました。</p>
+<p>WEB エディタで実際に実行してみましょう。</p>
+<h2 id="web-エディタで実際に実行してみましょう">WEB エディタで実際に実行してみましょう</h2>
+<p><img src="https://i.gyazo.com/7525befb84b02360559d8da2fe233121.png" alt="image"></p>
+<p>まず、動作確認をしてます。WEB エディタでフローを開きましょう。</p>
+<p><img src="https://i.gyazo.com/ed794fa846c36cd41de57e46c3e86247.png" alt="image"></p>
+<p>テスト用タイムスタンプという名前の inject ノードでテストしてみましょう。</p>
+<p><img src="https://i.gyazo.com/a5a225cc82283cb7baafc1bf1fd00fb6.png" alt="image"></p>
+<p>ボタンをクリックして動かします。</p>
+<p><img src="https://i.gyazo.com/7816d55ed5175bef63a7ae4406c03d66.png" alt="image"></p>
+<p><img src="https://i.gyazo.com/8e811d0ae2f2b3ff9274e3e7452f32c7.png" alt="image"></p>
+<p>すると、ツイート取得後のこちらの debug ノードに結果が返ってきます。</p>
+<p><img src="https://i.gyazo.com/678787565dfe137153987b67170031dc.png" alt="image"></p>
+<p><code>{ data: array[2] ～～</code> と書かれたところがツイート取得された結果です。今回のフローは 15 分間で取得するようにできているので、クリックしたときから、さかのぼって 15 分間でツイートがあれば取得結果が見れます。</p>
+<p><img src="https://i.gyazo.com/a80d8ccbaaf4ad99966a7edd59687b86.png" alt="image"></p>
+<p>JSON のツリーを開いて今回の内容を見てみます。無事取得されていました。</p>
+<h2 id="airtable-の記録も確認してみる">Airtable の記録も確認してみる</h2>
+<p><img src="https://i.gyazo.com/ef2c89a033d83d501c99f8153d006447.png" alt="image"></p>
+<p>Airtable への記録の結果はこちらの debug ノードで確認できます。</p>
+<p><img src="https://i.gyazo.com/0e7efa4a25f9defdfeadebe37665dfe4.png" alt="image"></p>
+<p>今回の記録されたデータの結果が返ってきます。この id というのは Airtable で保存された行です。</p>
+<p><img src="https://i.gyazo.com/12562ce6f8d90a963964e43f385677a6.png" alt="image"></p>
+<p>Airtable で確認してみたところ、無事記録されていました。（明るめの話題が出る時期を厳選してキャプチャしました！）</p>
 <h2 id="次は">次は</h2>
 <p>お疲れ様でした。</p>
-<p>左のメニューから「Introduction」をクリックして戻りましょう。</p>
+<p>左のメニューから「実行環境の設定をして動かしてみる」をクリックしましょう。</p>
 
                                 
                                 </section>
@@ -295,10 +292,14 @@
 
             
                 
-                <a href="04-airtable-create.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: Airtable にデータを記録する場所を作ろう">
+                <a href="04-flow-import-and-setting.html" class="navigation navigation-prev " aria-label="Previous page: フローをインポートして設定しよう">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
+                
+                <a href="06-lcdp-setting-wait.html" class="navigation navigation-next " aria-label="Next page: 実行環境の設定をして動かしてみる">
+                    <i class="fa fa-angle-right"></i>
+                </a>
                 
             
         
@@ -307,7 +308,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"いよいよ動かしてみよう","level":"1.7","depth":1,"previous":{"title":"Airtable にデータを記録する場所を作ろう","level":"1.6","depth":1,"path":"04-airtable-create.md","ref":"04-airtable-create.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"05-try-flow.md","mtime":"2022-04-22T13:53:04.675Z","type":"markdown"},"gitbook":{"version":"3.7.1","time":"2022-04-22T13:58:28.307Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"フローを試してみよう","level":"1.7","depth":1,"next":{"title":"実行環境の設定をして動かしてみる","level":"1.8","depth":1,"path":"06-lcdp-setting-wait.md","ref":"06-lcdp-setting-wait.md","articles":[]},"previous":{"title":"フローをインポートして設定しよう","level":"1.6","depth":1,"path":"04-flow-import-and-setting.md","ref":"04-flow-import-and-setting.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"05-try-flow.md","mtime":"2022-04-26T07:26:26.318Z","type":"markdown"},"gitbook":{"version":"3.7.1","time":"2022-04-26T07:56:04.815Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
