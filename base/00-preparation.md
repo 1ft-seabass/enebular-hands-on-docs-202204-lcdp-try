@@ -26,4 +26,10 @@ enebular での Twitter API バージョン2 のトークン取得方法はこ�
 
 ![image](https://i.gyazo.com/2a321664c77d272e80ce5968620f4751.jpg)
 
-enebular のアカウント をまだ作られていない方は、[Introduction enebular へのサインアップ](https://docs.enebular.com/ja/GetStarted/Introduction.html) から作成します。
+enebular のアカウント をまだ作られていない方は、[Introduction enebular へのサインアップ](https://docs.enebular.com/ja/GetStarted/Introduction.html) から、
+
+- enebularへのサインアップ
+- アカウントの設定
+- プロジェクトの作成
+
+の対応をお願いします。
